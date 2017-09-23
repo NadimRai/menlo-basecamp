@@ -52,6 +52,9 @@ main.container {
   padding: 1rem 1rem 2rem;
 }
 
+.is-hidden{
+  display: none;
+}
 @media (min-width: 48em) {
   .container {
     max-width: 68rem;
