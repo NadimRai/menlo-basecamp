@@ -1,1 +1,12 @@
-console.log("Project <%= @project.name %> saved like a pro!");
+// Assign our project list, project_card view and a new empty div element to variables
+var projectList = document.getElementById('project-list')
+// Remember, this is an .erb file, so we do have access to Rails helpers in here. We can call the render method to render a partial here with no worries (just don't forget to escape the returned template or you'll bump into errors).
+var newProject = '<%= escape_javascript(render "project_card.html", project: @project) %>'
+// We have to create a new element in this way in order to get our newProject working as it should. jQuery would avoid this, but where's the fun in that.
+var div = document.createElement('div')
+
+// Add our newProject string to the inner html of the empty div we just created
+div.innerHTML = newProject
+
+// Append the first child of our div variable (which will be our project card) to our project list
+projectList.appendChild(div.firstChild)
